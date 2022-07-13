@@ -1,0 +1,29 @@
+digraph G {
+  start [shape=Mdiamond];
+  start -> cc;
+  cc -> ssn;
+  ssn -> State;
+  State -> Bank;
+  Bank -> Paypal;
+  cc -> School;
+  cc -> Innsurance;
+  {ssn State cc} -> cb;
+  subgraph cluster_court {
+      Start [shape=diamond];
+      end [shape=square];
+      cc -> Start;
+      Start -> {hl fp} -> submit -> {denial accept};
+      denial -> submit;
+      accept -> end;
+      end -> cc;
+  }
+  
+  hl [label="Hormone Letter"];
+  fp [label="fingerprints"];
+  submit [label="Submit to court"];
+  denial [label="gets denied"];
+  accept [label="Gets accepted! Yay!"]
+  cc [label="Court Change"];
+  cb [label="College Board",shape=Mrect];
+  ssn [label="SSN/Federal"];
+}
